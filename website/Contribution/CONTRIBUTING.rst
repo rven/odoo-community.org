@@ -303,6 +303,14 @@ As specified in `the Repositories Section <#repositories>`_, you should also def
 the python packages to install in a file `requirements.txt` in the
 root folder of the repository. This will be used for travis.
 
+test-requirements.txt
+---------------------
+
+When python packages are needed for testing purpose, for example **odoo_test_helper**, they can be specified 
+in a file `test-requirements.txt` in the root folder of the repository.
+This will be used for travis.
+
+
 oca_dependencies.txt
 --------------------
 
@@ -328,6 +336,12 @@ To use a specific commit version, set the branch (required) and the
 commit SHA to select::
 
     sale-workflow https://github.com/OCA/sale-workflow branchname f848e37
+    
+Due to the modular nature of Odoo and the OCA flows requiring peer reviews, when you are migrating or developing modules, you may have several pull requests opened that depends on another.
+
+For being able to both test them on the quality checks and review them functionally on runboat, you can use the pip requirements format for installing the dependency directly from such pull request.
+
+See `Use-temporary-reference(s)-to-another-pull-request(s) <https://github.com/OCA/maintainer-tools/wiki/Use-temporary-reference(s)-to-another-pull-request(s)>`_ for more information.
 
 *********
 XML files
